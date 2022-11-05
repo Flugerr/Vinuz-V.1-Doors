@@ -1,0 +1,70 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Vinuz V.1|doors", "Midnight")
+
+--main
+local Tab1 = Window:NewTab("entitys")
+local Section1 = Tab1:NewSection("entitys")
+local Tab2 = Window:NewTab("Items Run In Preshop!!!")
+local Section2 = Tab2:NewSection("entitys")
+
+--buttons
+Section1:NewButton("A60(Shop)", "Buy A-60lol", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/DeividComSono/DoorsRoblox/main/A60Shop.lua"))()
+end)
+--
+Section2:NewButton("Crucfix", function()
+    local itemshop = game.Players.Yourusername.PlayerGui.MainUI.ItemShop.Items
+ 
+    local CrucifixButton = Instance.new("TextButton", game.Players.Yourusername.PlayerGui.MainUI.ItemShop.Items)
+    CrucifixButton.Text = "Crucifix, Kills eyes."
+     
+    CrucifixButton.MouseButton1Click:Connect(function()
+    CrucifixButton:Destroy()
+    local Crucifix = Instance.new("Tool", game.Workspace.Yourusername)
+    local HandleCrucifix = Instance.new("Part", Crucifix)
+    local mesh = Instance.new("SpecialMesh", HandleCrucifix)
+     
+    mesh.MeshId = "rbxassetid://11391246361"
+    mesh.TextureId = "rbxassetid://5718117252"
+    Crucifix.Name = "Crucifix"
+    Crucifix.TextureId = "http://www.roblox.com/asset/?id=11422729730"
+    HandleCrucifix.Name = "Handle"
+    HandleCrucifix.BrickColor = BrickColor.new("Br. yellowish orange")
+    local tool = game.Workspace.Yourusername.Crucifix
+    local anim = Instance.new("Animation", Crucifix)
+    anim.AnimationId = 'https://www.roblox.com/Assest?ID=10526835827'
+    local track
+     
+    tool.Equipped:Connect(function()
+        track = game.Workspace.Yourusername.Humanoid:LoadAnimation(anim) 
+            track.Priority = Enum.AnimationPriority.Action
+            track:Play()
+     
+    end)
+     
+    tool.Unequipped:Connect(function()
+        if track then
+            track:Stop()
+        end
+    end)
+     
+    --Powers.
+     
+    --Killing Eyes
+     
+    if game.Workspace:WaitForChild("Lookman") then 
+    tool.Equipped:Connect(function()
+    local Folder = game.Workspace.CurrentRooms:GetChildren()
+    local LastMap = Folder[#Folder]
+    game.Workspace.Yourusername.HumanoidRootPart.Position = LastMap.RoomStart.Position
+    if game.Workspace.Yourusername:WaitForChild("Crucifix") then
+    game.Workspace.Yourusername.Crucifix:Destroy() elseif game.Players.Yourusername.Backpack:WaitForChild("Crucifix") then
+    game.Players.Yourusername.Backpack.Crucifix:Destroy()
+    end
+    end)
+    end
+    end)   
+end)
+--labels
+Section1:NewLabel("Some of the scripts in the is not mine")
+Section2:NewLabel("The Crucfix Is Made By um idk")
